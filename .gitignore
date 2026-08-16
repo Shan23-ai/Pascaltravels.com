@@ -1,26 +1,49 @@
+# Dependencies
 node_modules/
-.DS_Store
+package-lock.json
+yarn.lock
+
+# Environment variables
 .env
 .env.local
-*.log
-dist/
-build/
-coverage/
+.env.*.local
+
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
-.cache/
+.DS_Store
+
+# OS files
+.bash_profile
+.bashrc
+.profile
+.zprofile
+.zshrc
+.gitconfig
+
+# Build outputs
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Temporary files
+/tmp/
+*.tmp
+
+# Android/Capacitor
+android/
 .gradle/
-gradle/
-gradlew
-gradlew.bat
-android/build/
-android/app/build/
-*.apk
-*.aab
-platforms/
-plugins/
-www/public/
-.capacitor/
+local.properties
+
+# MCP and local configs
+.mcp.json
+.trae/
+.ripgreprc
