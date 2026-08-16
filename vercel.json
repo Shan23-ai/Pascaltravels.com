@@ -1,25 +1,26 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "www/server/server.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "www/**",
-      "use": "@vercel/static"
+  "functions": {
+    "api/server.js": {
+      "runtime": "@vercel/node@3.0.10"
     }
-  ],
+  },
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "www/server/server.js"
+      "dest": "/api/server.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "www/$1"
+      "src": "/(?!api)(.+)",
+      "dest": "/www/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/www/index.html"
     }
   ],
+  "buildCommand": "npm install",
+  "outputDirectory": ".",
   "env": {
     "NODE_ENV": "production",
     "PESALINK_PROVIDER": "none",
