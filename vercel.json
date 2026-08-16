@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "www/server/server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "www/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "www/server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "www/$1"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production",
+    "PESALINK_PROVIDER": "none",
+    "WU_MODE": "mock",
+    "DB_ENABLED": "false"
+  }
+}
